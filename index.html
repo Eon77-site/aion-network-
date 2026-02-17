@@ -8,49 +8,84 @@
         :root {
             --primary: #00f2ff;
             --bg: #050505;
-            --card-bg: rgba(10, 10, 10, 0.9);
             --text: #e0e0e0;
         }
 
-        body, html {
-            margin: 0; padding: 0;
+        body {
             background-color: var(--bg);
             color: var(--text);
             font-family: 'Courier New', monospace;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Canvas da Matrix */
-        #matrixCanvas {
-            position: fixed;
-            top: 0; left: 0;
-            z-index: -1;
+            text-align: center;
         }
 
         #google_translate_element {
             padding: 10px;
-            background: rgba(0,0,0,0.8);
+            width: 100%;
+            background: #000;
             text-align: right;
         }
 
-        header { padding: 40px 20px; text-align: center; }
-        .logo-circle {
-            width: 80px; height: 80px;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+        header { padding: 40px 20px; }
+
+        /* --- GLOBO ANIMADO CSS (LEVE) --- */
+        .globe-container {
+            width: 100px;
+            height: 100px;
             margin: 0 auto 20px;
+            position: relative;
+            border-radius: 50%;
+            border: 2px solid var(--primary);
             box-shadow: 0 0 20px var(--primary);
-            color: var(--primary);
-            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
-        h1 { font-size: 2.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); }
-        .status { color: var(--primary); border: 1px solid var(--primary); padding: 5px 15px; font-size: 0.7rem; letter-spacing: 2px; }
+        .globe-container::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: repeating-linear-gradient(90deg, transparent, transparent 10px, var(--primary) 11px, transparent 12px);
+            opacity: 0.3;
+            animation: rotateGlobe 4s linear infinite;
+        }
 
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; position: relative; z-index: 1; }
+        @keyframes rotateGlobe {
+            from { transform: translateX(-50%); }
+            to { transform: translateX(0%); }
+        }
+
+        .node-text {
+            position: relative;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 0.8rem;
+            z-index: 2;
+        }
+        /* --- FIM DO GLOBO --- */
+
+        h1 { font-size: 2.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); margin: 10px 0; }
         
+        .status-badge {
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 4px 15px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .main-content { max-width: 600px; padding: 20px; }
+        
+        .description { font-size: 1.1rem; line-height: 1.6; color: #aaa; margin: 30px 0; }
+
         .btn-download {
             border: 2px solid var(--primary);
             color: var(--primary);
@@ -59,47 +94,70 @@
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
-            margin: 30px 0;
-            background: rgba(0,0,0,0.8);
             transition: 0.3s;
+            margin-bottom: 40px;
         }
 
-        .btn-download:hover { background: var(--primary); color: #000; box-shadow: 0 0 30px var(--primary); }
+        .btn-download:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 30px var(--primary);
+        }
 
-        .card { background: rgba(15, 15, 15, 0.9); border: 1px solid #222; padding: 20px; margin-bottom: 20px; text-align: left; }
-        .card h3 { color: var(--primary); margin-top: 0; font-size: 1rem; }
+        .card {
+            background: rgba(15, 15, 15, 0.9);
+            border: 1px solid #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
 
-        footer { padding: 40px; font-size: 0.6rem; color: #555; word-break: break-all; }
+        .card h3 { color: var(--primary); margin-top: 0; font-size: 1rem; text-transform: uppercase; }
+
+        footer {
+            margin-top: auto;
+            padding: 40px 20px;
+            font-size: 0.6rem;
+            color: #444;
+            word-break: break-all;
+            border-top: 1px solid #111;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
 
-    <canvas id="matrixCanvas"></canvas>
     <div id="google_translate_element"></div>
 
     <header>
-        <div class="logo-circle">E77</div>
-        <span class="status">GENESIS NODE 0: ONLINE</span>
+        <div class="globe-container">
+            <div class="node-text">NODE 0</div>
+        </div>
+        <span class="status-badge">Genesis Status: Online</span>
         <h1>AION NETWORK</h1>
     </header>
 
-    <div class="container">
-        <p style="color: #aaa; font-size: 1.1rem;">Sovereign Mesh Communication.<br>No Internet. No Censorship.</p>
-        
+    <main class="main-content">
+        <p class="description">
+            The sovereign protocol for decentralized communication.<br>
+            Powered by EON-77.
+        </p>
+
         <a href="#" class="btn-download">DOWNLOAD APK (BETA)</a>
 
         <div class="card">
-            <h3>P2P RESILIENCE</h3>
-            <p>Direct communication without central servers.</p>
+            <h3>MESH NETWORK</h3>
+            <p>Direct peer-to-peer encryption. No internet required for local nodes.</p>
         </div>
 
         <div class="card">
             <h3>SMART MINING</h3>
-            <p>Earn AION while securing the mesh.</p>
+            <p>Earn AION while securing the decentralized infrastructure.</p>
         </div>
-    </div>
+    </main>
 
     <footer>
+        DECENTRALIZED OS - 2026<br>
         ARCHITECT ID: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
     </footer>
 
@@ -108,46 +166,7 @@
             new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
         }
     </script>
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <script>
-        const canvas = document.getElementById('matrixCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const characters = '0123456789ABCDEFHIJKLMNOPQRSTUVWXYZ';
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = [];
-
-        for (let x = 0; x < columns; x++) drops[x] = 1;
-
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#00f2ff';
-            ctx.font = fontSize + 'px monospace';
-
-            for (let i = 0; i < drops.length; i++) {
-                const text = characters.charAt(Math.floor(Math.random() * characters.length));
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
-                    drops[i] = 0;
-
-                drops[i]++;
-            }
-        }
-
-        setInterval(draw, 33);
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
-    </script>
 </body>
 </html>
