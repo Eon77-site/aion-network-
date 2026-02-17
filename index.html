@@ -8,6 +8,7 @@
         :root {
             --primary: #00f2ff;
             --bg: #050505;
+            --card-bg: rgba(15, 15, 15, 0.95);
             --text: #e0e0e0;
         }
 
@@ -23,6 +24,7 @@
             text-align: center;
         }
 
+        /* Container do Tradutor */
         #google_translate_element {
             padding: 10px;
             width: 100%;
@@ -33,7 +35,7 @@
 
         header { padding: 40px 20px; }
 
-        /* --- GLOBO 3D ATUALIZADO E LEVE --- */
+        /* --- GLOBO 3D OTIMIZADO --- */
         .globe-wrapper {
             position: relative;
             width: 100px;
@@ -47,7 +49,7 @@
             border-radius: 50%;
             border: 2px solid var(--primary);
             position: relative;
-            background: radial-gradient(circle at 30% 30%, rgba(0, 242, 255, 0.1), transparent);
+            background: radial-gradient(circle at 30% 30%, rgba(0, 242, 255, 0.15), transparent);
             box-shadow: 0 0 20px var(--primary), inset 0 0 15px var(--primary);
             overflow: hidden;
             display: flex;
@@ -55,31 +57,28 @@
             justify-content: center;
         }
 
-        /* Linha Vertical Giratória (Efeito 3D) */
         .globe::before {
             content: "";
             position: absolute;
             width: 100%;
             height: 100%;
-            border-left: 2px solid rgba(0, 242, 255, 0.5);
-            border-right: 2px solid rgba(0, 242, 255, 0.5);
+            border-left: 2px solid rgba(0, 242, 255, 0.6);
+            border-right: 2px solid rgba(0, 242, 255, 0.6);
             border-radius: 50%;
-            animation: rotate3d 3s linear infinite;
+            animation: rotate3d 4s linear infinite;
         }
 
-        /* Linha Horizontal */
         .globe::after {
             content: "";
             position: absolute;
             width: 100%;
             height: 2px;
-            background: rgba(0, 242, 255, 0.3);
+            background: rgba(0, 242, 255, 0.4);
         }
 
         @keyframes rotate3d {
-            0% { transform: rotateY(0deg) scaleX(1); }
-            50% { transform: rotateY(90deg) scaleX(0.1); }
-            100% { transform: rotateY(180deg) scaleX(1); }
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
         }
 
         .node-label {
@@ -89,33 +88,35 @@
             z-index: 5;
             text-shadow: 0 0 8px #000;
         }
-        /* --- FIM DO GLOBO --- */
 
-        h1 { font-size: 2rem; letter-spacing: 4px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); margin: 10px 0; }
+        /* --- CONTEÚDO --- */
+        h1 { font-size: 2.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); margin: 10px 0; }
         
         .status-badge {
             color: var(--primary);
             border: 1px solid var(--primary);
-            padding: 4px 12px;
+            padding: 4px 15px;
             font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
         }
 
         .main-content { max-width: 600px; padding: 20px; }
         
-        .description { font-size: 1rem; line-height: 1.6; color: #aaa; margin: 25px 0; }
+        .description { font-size: 1.1rem; line-height: 1.6; color: #aaa; margin: 30px 0; }
 
+        /* Botão de Download */
         .btn-download {
             border: 2px solid var(--primary);
             color: var(--primary);
-            padding: 16px 30px;
-            font-size: 1rem;
+            padding: 18px 35px;
+            font-size: 1.1rem;
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
             transition: 0.3s;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
             background: rgba(0,0,0,0.5);
         }
 
@@ -125,15 +126,27 @@
             box-shadow: 0 0 30px var(--primary);
         }
 
+        .whitepaper-link {
+            display: block;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .whitepaper-link:hover { text-decoration: underline; }
+
+        /* Cards Informativos */
         .card {
-            background: rgba(15, 15, 15, 0.9);
+            background: var(--card-bg);
             border: 1px solid #222;
             padding: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: left;
         }
 
-        .card h3 { color: var(--primary); margin-top: 0; font-size: 0.9rem; text-transform: uppercase; }
+        .card h3 { color: var(--primary); margin-top: 0; font-size: 1rem; text-transform: uppercase; }
 
         footer {
             margin-top: auto;
@@ -162,25 +175,27 @@
 
     <main class="main-content">
         <p class="description">
-            Sovereign protocol for decentralized communication.<br>
-            The mesh is alive.
+            The sovereign protocol for decentralized communication.<br>
+            Powered by EON-77.
         </p>
 
         <a href="#" class="btn-download">DOWNLOAD APK (BETA)</a>
+        
+        <a href="whitepaper.html" class="whitepaper-link">READ WHITEPAPER</a>
 
         <div class="card">
-            <h3>MESH NETWORK</h3>
-            <p>Peer-to-peer communication. No internet required for local exchange.</p>
+            <h3>QUANTUM RESISTANCE</h3>
+            <p>Advanced cryptographic protection against future computational threats.</p>
         </div>
 
         <div class="card">
-            <h3>SMART MINING</h3>
-            <p>Secure the network and earn AION tokens directly.</p>
+            <h3>OFF-GRID MESH</h3>
+            <p>Peer-to-peer communication that works without internet or central servers.</p>
         </div>
     </main>
 
     <footer>
-        DECENTRALIZED OS - 2026<br>
+        DECENTRALIZED OPERATING SYSTEM - 2026<br>
         ARCHITECT ID: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
     </footer>
 
