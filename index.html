@@ -8,77 +8,49 @@
         :root {
             --primary: #00f2ff;
             --bg: #050505;
-            --card-bg: rgba(15, 15, 15, 0.95);
+            --card-bg: rgba(10, 10, 10, 0.9);
             --text: #e0e0e0;
         }
 
-        body {
+        body, html {
+            margin: 0; padding: 0;
             background-color: var(--bg);
             color: var(--text);
             font-family: 'Courier New', monospace;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             min-height: 100vh;
             overflow-x: hidden;
-            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), 
-                        repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(0, 242, 255, 0.05) 1px, rgba(0, 242, 255, 0.05) 2px);
-            background-size: 100% 3px;
         }
 
-        /* Tradutor no Topo */
+        /* Canvas da Matrix */
+        #matrixCanvas {
+            position: fixed;
+            top: 0; left: 0;
+            z-index: -1;
+        }
+
         #google_translate_element {
             padding: 10px;
-            width: 100%;
+            background: rgba(0,0,0,0.8);
             text-align: right;
-            background: #000;
         }
 
-        header {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
+        header { padding: 40px 20px; text-align: center; }
         .logo-circle {
-            width: 90px; height: 90px;
+            width: 80px; height: 80px;
             border: 2px solid var(--primary);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-weight: bold; margin: 0 auto 20px;
-            box-shadow: 0 0 15px var(--primary);
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px var(--primary);
             color: var(--primary);
+            background: rgba(0,0,0,0.8);
         }
 
-        h1 {
-            font-size: 2.2rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px var(--primary);
-            margin: 10px 0;
-        }
+        h1 { font-size: 2.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); }
+        .status { color: var(--primary); border: 1px solid var(--primary); padding: 5px 15px; font-size: 0.7rem; letter-spacing: 2px; }
 
-        .status-badge {
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 4px 12px;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-        }
-
-        .main-content {
-            max-width: 600px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .description {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #aaa;
-            margin: 30px 0;
-        }
-
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; text-align: center; position: relative; z-index: 1; }
+        
         .btn-download {
             border: 2px solid var(--primary);
             color: var(--primary);
@@ -87,79 +59,45 @@
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
+            margin: 30px 0;
+            background: rgba(0,0,0,0.8);
             transition: 0.3s;
-            margin-bottom: 40px;
         }
 
-        .btn-download:hover {
-            background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 30px var(--primary);
-        }
+        .btn-download:hover { background: var(--primary); color: #000; box-shadow: 0 0 30px var(--primary); }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #222;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
+        .card { background: rgba(15, 15, 15, 0.9); border: 1px solid #222; padding: 20px; margin-bottom: 20px; text-align: left; }
+        .card h3 { color: var(--primary); margin-top: 0; font-size: 1rem; }
 
-        .card h3 {
-            color: var(--primary);
-            margin-top: 0;
-            font-size: 1rem;
-        }
-
-        footer {
-            margin-top: auto;
-            padding: 40px 20px;
-            font-size: 0.6rem;
-            color: #444;
-            word-break: break-all;
-        }
+        footer { padding: 40px; font-size: 0.6rem; color: #555; word-break: break-all; }
     </style>
 </head>
 <body>
 
+    <canvas id="matrixCanvas"></canvas>
     <div id="google_translate_element"></div>
 
     <header>
-        <div class="logo-circle">EON-77</div>
-        <span class="status-badge">GENESIS NODE 0: ONLINE</span>
+        <div class="logo-circle">E77</div>
+        <span class="status">GENESIS NODE 0: ONLINE</span>
         <h1>AION NETWORK</h1>
     </header>
 
-    <main class="main-content">
-        <p class="description">
-            Sovereign Mesh Communication.<br>
-            Decentralized. Resilient. Unstoppable.
-        </p>
-
+    <div class="container">
+        <p style="color: #aaa; font-size: 1.1rem;">Sovereign Mesh Communication.<br>No Internet. No Censorship.</p>
+        
         <a href="#" class="btn-download">DOWNLOAD APK (BETA)</a>
 
         <div class="card">
-            <h3>MESH TECHNOLOGY</h3>
-            <p>Direct device-to-device communication without internet reliance.</p>
+            <h3>P2P RESILIENCE</h3>
+            <p>Direct communication without central servers.</p>
         </div>
 
         <div class="card">
             <h3>SMART MINING</h3>
-            <p>Earn AION tokens while securing the network mesh.</p>
+            <p>Earn AION while securing the mesh.</p>
         </div>
-    </main>
+    </div>
 
     <footer>
-        DECENTRALIZED OS - 2026<br>
         ARCHITECT ID: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
-    </footer>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-</html>
