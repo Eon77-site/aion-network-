@@ -24,7 +24,7 @@
             text-align: center;
         }
 
-        /* Container do Tradutor */
+        /* Google Translate Container */
         #google_translate_element {
             padding: 10px;
             width: 100%;
@@ -35,7 +35,7 @@
 
         header { padding: 40px 20px; }
 
-        /* --- GLOBO 3D OTIMIZADO --- */
+        /* --- GLOBO 3D ANIMADO --- */
         .globe-wrapper {
             position: relative;
             width: 100px;
@@ -63,17 +63,8 @@
             width: 100%;
             height: 100%;
             border-left: 2px solid rgba(0, 242, 255, 0.6);
-            border-right: 2px solid rgba(0, 242, 255, 0.6);
             border-radius: 50%;
             animation: rotate3d 4s linear infinite;
-        }
-
-        .globe::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: rgba(0, 242, 255, 0.4);
         }
 
         @keyframes rotate3d {
@@ -89,7 +80,7 @@
             text-shadow: 0 0 8px #000;
         }
 
-        /* --- CONTEÚDO --- */
+        /* --- CONTEÚDO PRINCIPAL --- */
         h1 { font-size: 2.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); margin: 10px 0; }
         
         .status-badge {
@@ -99,14 +90,13 @@
             font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
         }
 
-        .main-content { max-width: 600px; padding: 20px; }
+        .main-content { max-width: 650px; padding: 20px; }
         
         .description { font-size: 1.1rem; line-height: 1.6; color: #aaa; margin: 30px 0; }
 
-        /* Botão de Download */
+        /* --- BOTÕES E LINKS --- */
         .btn-download {
             border: 2px solid var(--primary);
             color: var(--primary);
@@ -116,7 +106,7 @@
             text-decoration: none;
             display: inline-block;
             transition: 0.3s;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             background: rgba(0,0,0,0.5);
         }
 
@@ -126,85 +116,25 @@
             box-shadow: 0 0 30px var(--primary);
         }
 
-        .whitepaper-link {
-            display: block;
+        .nav-links {
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .nav-links a {
             color: var(--primary);
             text-decoration: none;
-            font-size: 0.8rem;
-            margin-bottom: 40px;
+            font-size: 0.85rem;
             letter-spacing: 1px;
+            border-bottom: 1px transparent;
+            transition: 0.3s;
         }
 
-        .whitepaper-link:hover { text-decoration: underline; }
-
-        /* Cards Informativos */
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #222;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
+        .nav-links a:hover {
+            border-bottom: 1px solid var(--primary);
+            text-shadow: 0 0 5px var(--primary);
         }
 
-        .card h3 { color: var(--primary); margin-top: 0; font-size: 1rem; text-transform: uppercase; }
-
-        footer {
-            margin-top: auto;
-            padding: 40px 20px;
-            font-size: 0.6rem;
-            color: #444;
-            word-break: break-all;
-            border-top: 1px solid #111;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-
-    <div id="google_translate_element"></div>
-
-    <header>
-        <div class="globe-wrapper">
-            <div class="globe">
-                <span class="node-label">NODE 0</span>
-            </div>
-        </div>
-        <span class="status-badge">Genesis Status: Online</span>
-        <h1>AION NETWORK</h1>
-    </header>
-
-    <main class="main-content">
-        <p class="description">
-            The sovereign protocol for decentralized communication.<br>
-            Powered by EON-77.
-        </p>
-
-        <a href="#" class="btn-download">DOWNLOAD APK (BETA)</a>
-        
-        <a href="whitepaper.html" class="whitepaper-link">READ WHITEPAPER</a>
-
-        <div class="card">
-            <h3>QUANTUM RESISTANCE</h3>
-            <p>Advanced cryptographic protection against future computational threats.</p>
-        </div>
-
-        <div class="card">
-            <h3>OFF-GRID MESH</h3>
-            <p>Peer-to-peer communication that works without internet or central servers.</p>
-        </div>
-    </main>
-
-    <footer>
-        DECENTRALIZED OPERATING SYSTEM - 2026<br>
-        ARCHITECT ID: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
-    </footer>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-</html>
+        /* --- SECÇÃO FAQ --- */
