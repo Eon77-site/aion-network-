@@ -1,172 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EON-77 | AION MESH NETWORK</title>
-    <style>
-        :root {
-            --primary: #00f2ff;
-            --bg: #050505;
-            --text: #e0e0e0;
-        }
+<style>
+    /* ... (mantenha o restante do estilo) ... */
 
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
+    /* --- GLOBO 3D ATUALIZADO (LEVE) --- */
+    .globe-container {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto 20px;
+        position: relative;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        box-shadow: inset 0 0 20px var(--primary), 0 0 20px var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: radial-gradient(circle at 30% 30%, rgba(0, 242, 255, 0.2), transparent);
+    }
 
-        #google_translate_element {
-            padding: 10px;
-            width: 100%;
-            background: #000;
-            text-align: right;
-        }
+    /* Linhas de Longitude */
+    .globe-container::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: repeating-linear-gradient(90deg, transparent, transparent 15px, rgba(0, 242, 255, 0.3) 16px, transparent 17px);
+        animation: rotate3d 4s linear infinite;
+    }
 
-        header { padding: 40px 20px; }
+    /* Linhas de Latitude */
+    .globe-container::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 242, 255, 0.1);
+        background: repeating-linear-gradient(0deg, transparent, transparent 15px, rgba(0, 242, 255, 0.3) 16px, transparent 17px);
+    }
 
-        /* --- GLOBO ANIMADO CSS (LEVE) --- */
-        .globe-container {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            position: relative;
-            border-radius: 50%;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 20px var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
+    @keyframes rotate3d {
+        0% { transform: scaleX(1); opacity: 0.3; }
+        50% { transform: scaleX(0); opacity: 0.5; }
+        100% { transform: scaleX(1); opacity: 0.3; }
+    }
 
-        .globe-container::before {
-            content: "";
-            position: absolute;
-            width: 200%;
-            height: 100%;
-            background: repeating-linear-gradient(90deg, transparent, transparent 10px, var(--primary) 11px, transparent 12px);
-            opacity: 0.3;
-            animation: rotateGlobe 4s linear infinite;
-        }
-
-        @keyframes rotateGlobe {
-            from { transform: translateX(-50%); }
-            to { transform: translateX(0%); }
-        }
-
-        .node-text {
-            position: relative;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 0.8rem;
-            z-index: 2;
-        }
-        /* --- FIM DO GLOBO --- */
-
-        h1 { font-size: 2.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); margin: 10px 0; }
-        
-        .status-badge {
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 4px 15px;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .main-content { max-width: 600px; padding: 20px; }
-        
-        .description { font-size: 1.1rem; line-height: 1.6; color: #aaa; margin: 30px 0; }
-
-        .btn-download {
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 18px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            transition: 0.3s;
-            margin-bottom: 40px;
-        }
-
-        .btn-download:hover {
-            background: var(--primary);
-            color: #000;
-            box-shadow: 0 0 30px var(--primary);
-        }
-
-        .card {
-            background: rgba(15, 15, 15, 0.9);
-            border: 1px solid #222;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .card h3 { color: var(--primary); margin-top: 0; font-size: 1rem; text-transform: uppercase; }
-
-        footer {
-            margin-top: auto;
-            padding: 40px 20px;
-            font-size: 0.6rem;
-            color: #444;
-            word-break: break-all;
-            border-top: 1px solid #111;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-
-    <div id="google_translate_element"></div>
-
-    <header>
-        <div class="globe-container">
-            <div class="node-text">NODE 0</div>
-        </div>
-        <span class="status-badge">Genesis Status: Online</span>
-        <h1>AION NETWORK</h1>
-    </header>
-
-    <main class="main-content">
-        <p class="description">
-            The sovereign protocol for decentralized communication.<br>
-            Powered by EON-77.
-        </p>
-
-        <a href="#" class="btn-download">DOWNLOAD APK (BETA)</a>
-
-        <div class="card">
-            <h3>MESH NETWORK</h3>
-            <p>Direct peer-to-peer encryption. No internet required for local nodes.</p>
-        </div>
-
-        <div class="card">
-            <h3>SMART MINING</h3>
-            <p>Earn AION while securing the decentralized infrastructure.</p>
-        </div>
-    </main>
-
-    <footer>
-        DECENTRALIZED OS - 2026<br>
-        ARCHITECT ID: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
-    </footer>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-</body>
-</html>
+    .node-text {
+        position: relative;
+        font-weight: bold;
+        color: var(--primary);
+        font-size: 0.8rem;
+        z-index: 2;
+        text-shadow: 0 0 5px #000;
+    }
+</style>
