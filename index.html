@@ -5,65 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EON-77 | AION MESH NETWORK</title>
     <style>
-        :root { --primary: #00f2ff; --bg: #050505; --text: #e0e0e0; }
-        body { background-color: var(--bg); color: var(--text); font-family: 'Courier New', monospace; margin: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; text-align: center; }
-        
-        /* Estilo do Tradutor */
-        #google_translate_element { padding: 10px; background: #111; width: 100%; border-bottom: 1px solid #222; }
-        
-        header { padding: 40px 20px; }
-        .logo { width: 80px; height: 80px; border: 2px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: 0 0 20px var(--primary); font-weight: bold; color: var(--primary); }
-        h1 { font-size: 2.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 10px var(--primary); }
-        .status { font-size: 0.8rem; color: var(--primary); border: 1px solid var(--primary); padding: 5px 15px; border-radius: 20px; display: inline-block; margin-bottom: 20px; }
-        
-        .btn-download { background: transparent; color: var(--primary); border: 2px solid var(--primary); padding: 15px 30px; font-size: 1.1rem; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 30px; transition: 0.3s; }
-        .btn-download:hover { background: var(--primary); color: #000; box-shadow: 0 0 30px var(--primary); }
-        
-        .features { display: grid; grid-template-columns: 1fr; gap: 20px; padding: 40px; max-width: 600px; }
-        .card { border: 1px solid #222; padding: 20px; background: #0a0a0a; text-align: left; }
-        .card h3 { color: var(--primary); margin-top: 0; font-size: 1rem; }
-        
-        footer { margin-top: auto; padding: 40px; font-size: 0.6rem; color: #444; word-break: break-all; }
-    </style>
-</head>
-<body>
-
-    <div id="google_translate_element"></div>
-
-    <header>
-        <div class="logo">E77</div>
-        <div class="status">GENESIS NODE 0: ONLINE</div>
-        <h1>AION NETWORK</h1>
-    </header>
-
-    <main>
-        <p style="padding: 0 20px; font-size: 1.1rem; color: #aaa;">Sovereign Mesh Communication. <br>No Internet. No Censorship. No Borders.</p>
-        
-        <a href="#" class="btn-download">DOWNLOAD AION APP (APK)</a>
-        
-        <div class="features">
-            <div class="card">
-                <h3>P2P RESILIENCE</h3>
-                <p>Messages jump from device to device using Mesh technology, bypassing global shutdowns.</p>
-            </div>
-            <div class="card">
-                <h3>INTEGRATED MINING</h3>
-                <p>Secure the network and earn AION tokens directly through your mobile hardware.</p>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>DECENTRALIZED OPERATING SYSTEM - 2026</p>
-        ARCHITECT ID: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
-    </footer>
-
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        :root {
+            --primary: #00f2ff;
+            --bg: #050505;
+            --card-bg: rgba(10, 10, 10, 0.9);
+            --text: #e0e0e0;
+            --glitch-color: #ff00c1;
         }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-</body>
-</html>
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- MATRIX BACKGROUND EFFECT --- */
+        .matrix-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .matrix-column {
+            position: absolute;
+            width: 15px; /* Adjust for density */
+            left: var(--left);
+            top: 0;
+            height: 100%;
+            opacity: var(--opacity);
+            animation: matrixDrop var(--duration) linear infinite;
+        }
+
+        .matrix-char {
+            color: var(--primary);
+            font-size: 14px;
+            line-height: 15px;
+            display: block;
+            opacity: 0.8
