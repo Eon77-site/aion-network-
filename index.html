@@ -10,6 +10,7 @@
             --bg: #000000;
             --card-bg: #0a0a0a;
             --text: #e0e0e0;
+            --warning: #ffa600;
         }
 
         body {
@@ -29,7 +30,7 @@
 
         header { padding: 30px 20px; }
 
-        /* --- EFEITO PULSAR (MAIS SEGURO QUE 3D) --- */
+        /* --- EFEITO PULSAR (SAFE MODE) --- */
         .node-core {
             width: 80px;
             height: 80px;
@@ -66,6 +67,7 @@
         
         .description { font-size: 0.95rem; line-height: 1.4; color: #888; margin: 20px 0; }
 
+        /* BOTÃO RELEASING */
         .btn-download {
             border: 2px solid var(--primary);
             color: var(--primary);
@@ -74,20 +76,46 @@
             font-weight: bold;
             text-decoration: none;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             background: transparent;
+            transition: 0.3s;
+        }
+        
+        .btn-download:hover {
+            background: rgba(0, 242, 255, 0.1);
+        }
+
+        /* BOX DE AVISO BETA */
+        .beta-warning {
+            margin: 15px auto 30px;
+            border: 1px solid #333;
+            padding: 15px;
+            background: rgba(255, 166, 0, 0.05);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .beta-title {
+            color: var(--warning);
+            font-size: 0.7rem;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .beta-text {
+            color: #888;
+            font-size: 0.65rem;
+            margin: 8px 0 0 0;
+            line-height: 1.4;
         }
 
         .nav-links { margin-bottom: 30px; display: flex; justify-content: center; gap: 20px; }
-        .nav-links a { color: var(--primary); text-decoration: none; font-size: 0.8rem; }
+        .nav-links a { color: var(--primary); text-decoration: none; font-size: 0.8rem; border-bottom: 1px solid transparent; }
+        .nav-links a:hover { border-bottom: 1px solid var(--primary); }
 
-        /* FAQ Estilo Terminal */
-        .faq-container { text-align: left; border-top: 1px solid #222; padding-top: 20px; }
-        .faq-item { margin-bottom: 15px; border-bottom: 1px solid #111; padding-bottom: 10px; }
-        .faq-item h3 { font-size: 0.85rem; color: var(--primary); margin: 0 0 5px 0; }
-        .faq-item p { font-size: 0.8rem; color: #777; margin: 0; }
-
-        footer { margin-top: auto; padding: 30px 10px; font-size: 0.6rem; color: #333; width: 100%; border-top: 1px solid #111; }
+        footer { margin-top: auto; padding: 30px 10px; font-size: 0.6rem; color: #444; width: 100%; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
@@ -98,34 +126,33 @@
         <div class="node-core">
             <span class="node-label">NODE 0</span>
         </div>
-        <span class="status-badge">Genesis: Online</span>
+        <span class="status-badge">GENESIS PROTOCOL: ACTIVE</span>
         <h1>AION NETWORK</h1>
     </header>
 
     <main class="main-content">
-        <p class="description">Sovereign Mesh Protocol for Decentralized Communication.</p>
+        <p class="description">
+            Sovereign Mesh Protocol for Decentralized Communication and Quantum-Resistant Economy.
+        </p>
 
-        <a href="#" class="btn-download">DOWNLOAD APK (BETA)</a>
+        <a href="#" class="btn-download">DOWNLOAD APK (RELEASING AT 01:00)</a>
         
-        <div class="nav-links">
-            <a href="whitepaper.html">WHITEPAPER</a>
-            <a href="https://x.com/Eon77Aion" target="_blank">TWITTER</a>
+        <div class="beta-warning">
+            <p class="beta-title">⚠️ SYSTEM STATUS: OPEN BETA V1.0</p>
+            <p class="beta-text">
+                Focus: Mesh Network Stability & Node Sync. <br>
+                Official liquidity injection scheduled for the post-stabilization phase.
+            </p>
         </div>
 
-        <div class="faq-container">
-            <div class="faq-item">
-                <h3>What is AION?</h3>
-                <p>An off-grid P2P communication network resistant to quantum threats.</p>
-            </div>
-            <div class="faq-item">
-                <h3>Airdrop Info</h3>
-                <p>50% of supply. Strategic vesting for market protection.</p>
-            </div>
+        <div class="nav-links">
+            <a href="whitepaper.html">WHITEPAPER</a>
+            <a href="https://x.com/Eon77Aion" target="_blank">TWITTER/X</a>
         </div>
     </main>
 
     <footer>
-        ARCHITECT: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
+        BUILD: EON-77-GENESIS | ARCHITECT: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
     </footer>
 
     <script type="text/javascript">
