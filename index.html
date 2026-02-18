@@ -173,4 +173,78 @@
 
         <a href="#" class="btn-download">DOWNLOAD APK (STABILIZING GENESIS NODE)</a>
         
-        <div class="network
+        <div class="network-status-container">
+            <div class="status-header">
+                <div class="pulse-green"></div> NETWORK INTELLIGENCE
+            </div>
+            
+            <div class="status-grid">
+                <div class="status-item">
+                    <span class="status-label">NÓS ONLINE</span>
+                    <span class="status-value" id="nodes-count">1 (GENESIS)</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">HASHRATE DA REDE</span>
+                    <span class="status-value">0.00 TH/s</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">GENESIS LOCK (4%)</span>
+                    <span class="status-value" style="color: var(--primary);">PROTEGIDO</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">VESTING (50% AIRDROP)</span>
+                    <span class="status-value">PROTOCOLADO</span>
+                </div>
+            </div>
+
+            <div class="sync-wrapper">
+                <div class="sync-info">
+                    <span>ESTABILIZANDO INFRAESTRUTURA P2P...</span>
+                    <span id="sync-percent">98.40%</span>
+                </div>
+                <div class="sync-bg">
+                    <div id="sync-bar" class="sync-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="beta-warning">
+            <p class="beta-title">⚠️ STATUS DO SISTEMA: OPEN BETA V1.0 (AGUARDANDO)</p>
+            <p class="beta-text">
+                Foco: Estabilidade da Rede Mesh e Sincronização de Nós. <br>
+                A injeção oficial de liquidez ocorrerá após a fase de estabilização global.
+            </p>
+        </div>
+
+        <div class="nav-links">
+            <a href="whitepaper.html">WHITEPAPER</a>
+            <a href="https://x.com/Eon77Aion" target="_blank">TWITTER/X</a>
+        </div>
+    </main>
+
+    <footer>
+        BUILD: EON-77-GENESIS | ARCHITECT: AION_d23d6dd0779dbe77518476a880a0ed18404014ce
+    </footer>
+
+    <script type="text/javascript">
+        // Tradutor do Google
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt'}, 'google_translate_element');
+        }
+
+        // Animação de Sincronização
+        setInterval(() => {
+            const syncLabel = document.getElementById('sync-percent');
+            const syncBar = document.getElementById('sync-bar');
+            let current = parseFloat(syncLabel.innerText);
+            if (current < 99.98) {
+                current += 0.01;
+                syncLabel.innerText = current.toFixed(2) + "%";
+                syncBar.style.width = current + "%";
+            }
+        }, 8000);
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
